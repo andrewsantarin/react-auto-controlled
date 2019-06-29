@@ -1,0 +1,19 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# production
+build
+dist
+
+# rollup-plugin-typescript2
+# https://github.com/ezolenko/rollup-plugin-typescript2/issues/119
+.rpt2_cache
+
+# npm & yarn
+**/*.tar.gz
+**/*.tgz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
