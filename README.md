@@ -132,8 +132,8 @@ export function App() {
 
 ### Function Hooks
 Unlike a Class State Manager, a Hook only manages **one** slice of the state, similar to the React `useState` hook.
-You gain more control over which state you'd prefer to update. However, in spirit of the `useState` hook, you have
-to invoke the state modifer one by one if you want to update multiple states at once.
+By using Hooks, you gain more control over which state you'd prefer to update. However, in the spirit of `useState`,
+you have to invoke the state modifer one by one if you want to update multiple states at once.
 
 ```tsx
 import React, { useCallback } from 'react';
