@@ -1,0 +1,97 @@
+{
+  "name": "react-auto-controlled",
+  "version": "0.1.0-alpha.0",
+  "description": "Component autonomous state control utilities in React class methods and React Hooks",
+  "keywords": [
+    "react",
+    "component",
+    "component-extensions",
+    "component-utils",
+    "utils",
+    "react-components",
+    "react-hooks",
+    "use-state",
+    "auto-controlled-state",
+    "prop-derived-state"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewsantarin/react-auto-controlled.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andrewsantarin/react-auto-controlled/issues"
+  },
+  "homepage": "https://github.com/andrewsantarin/react-auto-controlled#readme",
+  "author": {
+    "name": "Cezar Andrew Villegas Santarin",
+    "email": "andrew.santarin@gmail.com",
+    "url": "https://linkedin.com/in/andrewsantarin"
+  },
+  "typings": "./typings/index.d.ts",
+  "types": "./typings/index.d.ts",
+  "devDependencies": {
+    "@testing-library/react": "^8.0.4",
+    "@testing-library/react-hooks": "^1.0.4",
+    "@types/jest": "^24.0.13",
+    "@types/jsdom": "^12.2.4",
+    "@types/lodash": "^4.14.134",
+    "@types/node": "^12.0.7",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4",
+    "concurrently": "^4.1.0",
+    "jest": "24.7.1",
+    "jest-dom": "^3.5.0",
+    "jsdom": "^15.1.1",
+    "lodash": "^4.17.11",
+    "prepend-file": "^1.3.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-test-renderer": "^16.8.6",
+    "rollup": "^1.14.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.0.1",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-size-snapshot": "^0.9.0",
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.2.0",
+    "tslib": "^1.9.3",
+    "tslint": "^5.17.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.1"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.11",
+    "react": "^16.8.6"
+  },
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*'",
+    "build": "rollup -c",
+    "build-watch": "rollup -c -w",
+    "install-all": "npm i && cd example && yarn && cd ..",
+    "start-example": "cd example && npm start",
+    "deploy-example": "cd example && npm run deploy",
+    "develop": "concurrently --kill-others \"npm run build-watch\" \"npm run start-example\"",
+    "test": "jest --verbose ./src",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "prepublishOnly": "npm run build && npm run test"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "example"
+    ],
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {}
+}
