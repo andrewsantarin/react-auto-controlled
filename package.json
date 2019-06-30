@@ -28,8 +28,8 @@
     "email": "andrew.santarin@gmail.com",
     "url": "https://linkedin.com/in/andrewsantarin"
   },
-  "typings": "./typings/index.d.ts",
-  "types": "./typings/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "devDependencies": {
     "@testing-library/react": "^8.0.4",
     "@testing-library/react-hooks": "^1.0.4",
