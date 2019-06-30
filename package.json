@@ -28,7 +28,9 @@
     "email": "andrew.santarin@gmail.com",
     "url": "https://linkedin.com/in/andrewsantarin"
   },
-  "typings": "dist/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "jsnext:main": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@testing-library/react": "^8.0.4",
@@ -66,8 +68,11 @@
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.1"
   },
-  "peerDependencies": {
+  "dependencies": {
     "lodash": "^4.17.11",
+    "rollup-plugin-node-builtins": "^2.1.2"
+  },
+  "peerDependencies": {
     "react": "^16.8.6"
   },
   "scripts": {
@@ -92,6 +97,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {}
+  ]
 }

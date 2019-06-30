@@ -1,12 +1,45 @@
 {
   "dist/index.js": {
-    "bundled": 13713,
-    "minified": 1913,
-    "gzipped": 857
+    "bundled": 75378,
+    "minified": 13249,
+    "gzipped": 4683
   },
   "dist/index.min.js": {
-    "bundled": 1913,
-    "minified": 1913,
-    "gzipped": 857
+    "bundled": 13249,
+    "minified": 12522,
+    "gzipped": 4340
+  },
+  "dist/index.cjs.js": {
+    "bundled": 70633,
+    "minified": 20722,
+    "gzipped": 6066
+  },
+  "example/src/react-auto-controlled/index.js": {
+    "bundled": 70524,
+    "minified": 20601,
+    "gzipped": 6019,
+    "treeshaked": {
+      "rollup": {
+        "code": 2998,
+        "import_statements": 14
+      },
+      "webpack": {
+        "code": 9455
+      }
+    }
+  },
+  "dist/index.esm.js": {
+    "bundled": 70503,
+    "minified": 20601,
+    "gzipped": 6019,
+    "treeshaked": {
+      "rollup": {
+        "code": 2998,
+        "import_statements": 14
+      },
+      "webpack": {
+        "code": 9455
+      }
+    }
   }
 }
