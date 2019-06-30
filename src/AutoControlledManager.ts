@@ -55,26 +55,31 @@ const getAutoControlledStateValue = function getAutoControlledStateValue<
   ```
   import React, { Component } from 'react';
   import { AutoControlledManager, AutoControlled } from 'react-auto-controlled';
-  
+
   type CounterProps = {
     otherProp?: string;
-    defaultValue?: number;
     value?: number;
+    defaultValue?: number;
+    name?: string;
+    defaultName?: string;
   };
 
   type CounterState = Required<
-    Pick<CounterProps, 'value'>
+    Pick<CounterProps, 'value' | 'name'>
   >;
-  
+
   const counterAutoControlledManager = new AutoControlledManager<AppState, AppProps>(
     [
-      'value', // A list of class component props you want to auto-control
+      // A list of class component props you want to auto-control
+      'value',
+      'name',
     ],
     {
       // State initializer
       getInitialAutoControlledState() {
         return {
           active: false,
+          name: 'Andrew',
           level: 0,
         };
       }
@@ -103,15 +108,20 @@ const getAutoControlledStateValue = function getAutoControlledStateValue<
       // Replace `this.setState()` with `this.trySetState()` to achieve auto-control.
       this.trySetState({
         value: this.state.value + 1,
+        name: 'Bob',
       });
     }
-  
+
     render() {
+      const { value, name } = this.state;
       return (
         <div>
           <button onClick={this.handleClick}>
-            Value: <strong>{this.state.value}</strong>
+            Value: <strong>{value}</strong>
           </button>
+          <div>
+            Hello, {name}!
+          </div>
         </div>
       );
     }
@@ -125,8 +135,8 @@ const getAutoControlledStateValue = function getAutoControlledStateValue<
     return (
       <div>
         <Counter />
-        <Counter defaultValue={20} />
-        <Counter value={10} />
+        <Counter defaultValue={20} defaultName="Cody" />
+        <Counter value={10} name="Charlie" />
       </div>
     );
   }

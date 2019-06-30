@@ -15,12 +15,13 @@ import isEqual from 'lodash/isEqual';
   import { useAutoControlled } from 'react-auto-controlled';
 
   interface CounterProps {
+    otherProp?: string;
     value?: number;
     defaultValue?: number;
     name?: string;
     defaultName?: string;
   }
-  
+
   export function Counter(props) {
     const [ value, trySetValue, getDerivedValueFromProp ] = useAutoControlled(0, props.value, props.defaultValue);
     const [ name, trySetName, getDerivedNameFromProp ] = useAutoControlled('Andrew', props.name, props.defaultName);
@@ -30,6 +31,7 @@ import isEqual from 'lodash/isEqual';
 
     const handleClick = useCallback(() => {
       trySetValue(value + 1);
+      trySetName('Bob');
     }, [ trySetValue, value ]);
 
     return (
