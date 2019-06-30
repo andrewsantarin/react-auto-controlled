@@ -1,6 +1,6 @@
 {
   "name": "react-auto-controlled",
-  "version": "0.1.0-beta.6",
+  "version": "0.1.0-beta.7",
   "description": "Component autonomous state control utilities in React class methods and React Hooks",
   "keywords": [
     "react",
@@ -62,8 +62,8 @@
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-node-resolve": "^5.0.1",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-size-snapshot": "^0.9.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-typescript2": "^0.21.1",
     "ts-jest": "^24.0.2",
