@@ -28,8 +28,8 @@
     "email": "andrew.santarin@gmail.com",
     "url": "https://linkedin.com/in/andrewsantarin"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/react-auto-controlled.js",
+  "browser": "dist/react-auto-controlled.js",
   "jsnext:main": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "devDependencies": {

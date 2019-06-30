@@ -41,5 +41,25 @@
         "code": 9455
       }
     }
+  },
+  "dist/react-draggable.js": {
+    "bundled": 75373,
+    "minified": 13244,
+    "gzipped": 4686
+  },
+  "dist/react-draggable.min.js": {
+    "bundled": 75373,
+    "minified": 13244,
+    "gzipped": 4686
+  },
+  "dist/react-auto-controlled.js": {
+    "bundled": 75378,
+    "minified": 13249,
+    "gzipped": 4683
+  },
+  "dist/react-auto-controlled.min.js": {
+    "bundled": 75378,
+    "minified": 13249,
+    "gzipped": 4683
   }
 }
