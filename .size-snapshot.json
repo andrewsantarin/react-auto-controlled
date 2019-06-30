@@ -1,6 +1,6 @@
 {
   "dist/index.js": {
-    "bundled": 13418,
+    "bundled": 13713,
     "minified": 1913,
     "gzipped": 857
   },
@@ -8,5 +8,38 @@
     "bundled": 1913,
     "minified": 1913,
     "gzipped": 857
+  },
+  "dist/index.cjs.js": {
+    "bundled": 12569,
+    "minified": 1975,
+    "gzipped": 816
+  },
+  "example/src/react-auto-controlled/index.js": {
+    "bundled": 12284,
+    "minified": 1729,
+    "gzipped": 736,
+    "treeshaked": {
+      "rollup": {
+        "code": 90,
+        "import_statements": 90
+      },
+      "webpack": {
+        "code": 2330
+      }
+    }
+  },
+  "dist/index.esm.js": {
+    "bundled": 12263,
+    "minified": 1729,
+    "gzipped": 736,
+    "treeshaked": {
+      "rollup": {
+        "code": 90,
+        "import_statements": 90
+      },
+      "webpack": {
+        "code": 2330
+      }
+    }
   }
 }
