@@ -12,7 +12,9 @@ A collection of React component libraries (both class methods and Hooks) for sel
 
 ## Why?
 1. You've the need to write (most likely generic) components which contain simple controls to their internal state, such as visibility toggling or number incrementing which should be controllable by the component without having to provide a prop and event handler externally.
-2. You've come to realize that the `<AutoControlledComponent>` class used by [`semantic-ui-react`](https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/lib/AutoControlledComponent.js) and [`@stardust-ui/react`](https://github.com/stardust-ui/react/blob/master/packages/react/src/lib/AutoControlledComponent.tsx) does roughly what you want, but it's either not exported (`semantic-ui-react`) or requires dependencies to other modules that you don't need (`@stardust-ui/react`).
+2. You've discovered that helpers in the wild does roughly what you want but have shortcomings:
+  - [`<AutoControlledComponent>`](https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/lib/AutoControlledComponent.js) (`semantic-ui-react`) is not exported.
+  - [`<AutoControlledComponent>`](https://github.com/stardust-ui/react/blob/master/packages/react/src/lib/AutoControlledComponent.tsx) (`@stardust-ui/react`) requires dependencies to other modules that you don't need.
 3. You don't want to reimplement the wheel every single time, especially on `class` components.
 
 Enter this library. Its utilities behave roughly in the manner you'd expect if you were to use `<AutoControlledComponent>`, with some differences. Include support for a Hook-based counterpart and you get `react-auto-controlled`.
@@ -61,6 +63,8 @@ export function App() {
 ### Function Hook (`useAutoControlled(initialState, props)`)
 **For React v16.8+**
 
+*Demo: https://codesandbox.io/s/react-16-auto-controlled-hooks-on52i*
+
 Unlike a [Class State Manager](#Class-State-Manager-static-getDerivedStateFromPropsnextProps-prevState), a Hook only manages **one** slice of the state, similar to the React `useState` hook.
 By using Hooks, you gain more control over which state you'd prefer to update. However, in the spirit of `useState`,
 you have to invoke the state modifer one by one if you want to update multiple states at once.
@@ -87,8 +91,8 @@ export function Counter(props) {
     defaultProp: props.defaultName,   // optional
   });
 
-  getDerivedValueFromProp();
-  getDerivedNameFromProp();
+  getDerivedValueFromProp();  // Similar to getDerivedStateFromProps, except no argument and state slice only.
+  getDerivedNameFromProp();   // Similar to getDerivedStateFromProps, except no argument and state slice only.
 
   const handleClick = useCallback(() => {
     trySetValue(value + 1);
@@ -110,6 +114,8 @@ export function Counter(props) {
 
 ### Class State Manager (`static getDerivedStateFromProps(nextProps, prevState)`)
 **For React v16.3+**
+
+*Demo: https://codesandbox.io/s/react-16-auto-controlled-class-7360y*
 
 The Class State Manager offers a set of methods in order to autocontrol state. Unlike `<AutoControlledComponent>`,
 it's not an extension of the React `Component` class. You'll need to declare your own class component separately.
@@ -197,15 +203,19 @@ export class Counter
 ### Class State Manager (`componentWillReceiveProps(nextProps)` and `this.state`)
 **For React 15.0 ... React 16.2**
 
+>**⚠️ This library has been tested with React v16.8.x. ⚠️**
+>
+>This library can't guarantee that this approach will always work.
+>
+>Consider upgrading your project's React dependency to at least v16.3.
+
+*Demo: https://codesandbox.io/s/react-15-auto-controlled-class-s1gky*
+
 The Class State Manager offers a set of methods in order to autocontrol state.
 
 The [`static getDerivedStateFromProps(nextProps, prevState)`](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops) component function, which this library intends to enhance, would be unavailable to you in your version of React, but you still intend to use this library for the remaining benefits. You can subsitute it with a combination of:
 - `componentWillReceiveProps(nextProps)` lifecycle function
 - `this.state` in the lifecycle implementation.
-
-**⚠️ This library was tested with the latest versions of React. ⚠️**
-
-It does not guarantee that this approach will work. Consider upgrading your React dependency to at least v16.3.
 
 ```tsx
 import React, { Component } from 'react';
@@ -314,6 +324,6 @@ Ideas & support are more than welcome!
 
 ## License
 
-*See: [LICENSE.md](LICENSE.md)*
+_See: [LICENSE.md](LICENSE.md)_
 
 MIT.
