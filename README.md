@@ -307,4 +307,7 @@ Ideas & support are more than welcome!
 9. Create a pull request.
 
 ## License
-MIT
+
+*See: [LICENSE.md](LICENSE.md)*
+
+MIT.
