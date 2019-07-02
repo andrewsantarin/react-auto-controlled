@@ -5,7 +5,10 @@ import { CounterProps } from './counter.types';
 
 
 export const CounterHook = function CounterHook(props: CounterProps) {
-  const [ value, trySetValue, getDerivedValueFromProp ] = useAutoControlled(0, props.value, props.defaultValue);
+  const [ value, trySetValue, getDerivedValueFromProp ] = useAutoControlled(0, {
+    prop: props.value,
+    defaultProp: props.defaultValue,
+  });
 
   getDerivedValueFromProp();
 
