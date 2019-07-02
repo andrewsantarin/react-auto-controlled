@@ -12,7 +12,9 @@ A collection of React component libraries (both class methods and Hooks) for sel
 
 ## Why?
 1. You've the need to write (most likely generic) components which contain simple controls to their internal state, such as visibility toggling or number incrementing which should be controllable by the component without having to provide a prop and event handler externally.
-2. You've come to realize that the `<AutoControlledComponent>` class used by [`semantic-ui-react`](https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/lib/AutoControlledComponent.js) and [`@stardust-ui/react`](https://github.com/stardust-ui/react/blob/master/packages/react/src/lib/AutoControlledComponent.tsx) does roughly what you want, but it's either not exported (`semantic-ui-react`) or requires dependencies to other modules that you don't need (`@stardust-ui/react`).
+2. You've discovered that helpers in the wild does roughly what you want but have shortcomings:
+  - [`<AutoControlledComponent>`](https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/lib/AutoControlledComponent.js) (`semantic-ui-react`) is not exported.
+  - [`<AutoControlledComponent>`](https://github.com/stardust-ui/react/blob/master/packages/react/src/lib/AutoControlledComponent.tsx) (`@stardust-ui/react`) requires dependencies to other modules that you don't need.
 3. You don't want to reimplement the wheel every single time, especially on `class` components.
 
 Enter this library. Its utilities behave roughly in the manner you'd expect if you were to use `<AutoControlledComponent>`, with some differences. Include support for a Hook-based counterpart and you get `react-auto-controlled`.
