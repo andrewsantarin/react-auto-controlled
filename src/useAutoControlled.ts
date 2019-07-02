@@ -9,73 +9,39 @@ import isEqual from 'lodash/isEqual';
  * Mimics the `useState()` React Hook signature, but returns an additional method for
  * automatically deriving state from prop.
  * 
- * **Example:**
-  ```
-  import React, { useCallback } from 'react';
-  import { useAutoControlled } from 'react-auto-controlled';
-
-  interface CounterProps {
-    otherProp?: string;
-    value?: number;
-    defaultValue?: number;
-    name?: string;
-    defaultName?: string;
-  }
-
-  export function Counter(props) {
-    const [ value, trySetValue, getDerivedValueFromProp ] = useAutoControlled(0, props.value, props.defaultValue);
-    const [ name, trySetName, getDerivedNameFromProp ] = useAutoControlled('Andrew', props.name, props.defaultName);
-
-    getDerivedValueFromProp();
-    getDerivedNameFromProp();
-
-    const handleClick = useCallback(() => {
-      trySetValue(value + 1);
-      trySetName('Bob');
-    }, [ trySetValue, value ]);
-
-    return (
-      <div>
-        <button onClick={handleClick}>
-          Value: <strong>{value}</strong>
-        </button>
-        <div>
-          Hello, {name}!
-        </div>
-      </div>
-    );
-  }
-
-  export function App() {
-    // Details:
-    // 1. Without a `prop`, the counter component starts at `0`, incrementing itself when its button is clicked.
-    // 2. With a `defaultProp`, the counter component starts at `20`, incrementing itself when its button is clicked.
-    // 3. With a `value`, the counter component will not update its value unless the user provides a `value` prop.
-    return (
-      <div>
-        <Counter />
-        <Counter defaultValue={20} defaultName="Cody" />
-        <Counter value={10} name="Charlie" />
-      </div>
-    );
-  }
-  ```
- *
  * @export
  * @template State :: The state type, which can be anything.
  * @param {State} initialState The initial state of the state modifier hook, internal to the component.
- * @param {State} [prop] _(optional)_ A prop value to take complete control of the state, if provided.
- * @param {State} [defaultProp] _(optional)_ A prop value to take control of the initial state only, if provided.
+ * @param {Props} [props={}] (optional) Prop values to take control of the state and initial state, if provided.
+ * @param {{ prop?: State; defaultProp?: State; }} [props={}]
+ * @returns {[
+ *   State,
+ *   React.Dispatch<React.SetStateAction<State>>,
+ *   () => void
+ * ]}
  */
 export const useAutoControlled = function useAutoControlled<State>(
   initialState: State,
-  prop?: State,
-  defaultProp?: State
+  props: {
+    /**
+     * Controls the state on every render, including the initial state. Use this if you need external control.
+     *
+     * @type {State}
+     */
+    prop?: NonNullable<State>;
+    /**
+     * Controls the initial state. Use this if your uncontrolled component accepts a custom starting value.
+     *
+     * @type {State}
+     */
+    defaultProp?: NonNullable<State>;
+  } = {}
 ): [
   State,
   React.Dispatch<React.SetStateAction<State>>,
   () => void
 ] {
+  const { prop, defaultProp } = props;
   const [ state, setState ] = useState(!isUndefined(defaultProp) ? defaultProp : initialState);
 
   // Counterpart to the `static getDerivedStateFromProps` method, but for one key only.

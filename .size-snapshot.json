@@ -10,14 +10,14 @@
     "gzipped": 4340
   },
   "dist/index.cjs.js": {
-    "bundled": 70633,
-    "minified": 20722,
-    "gzipped": 6066
+    "bundled": 66632,
+    "minified": 20764,
+    "gzipped": 6076
   },
   "example/src/react-auto-controlled/index.js": {
-    "bundled": 70524,
-    "minified": 20601,
-    "gzipped": 6019,
+    "bundled": 66523,
+    "minified": 20643,
+    "gzipped": 6028,
     "treeshaked": {
       "rollup": {
         "code": 2998,
@@ -29,9 +29,9 @@
     }
   },
   "dist/index.esm.js": {
-    "bundled": 70503,
-    "minified": 20601,
-    "gzipped": 6019,
+    "bundled": 66502,
+    "minified": 20643,
+    "gzipped": 6028,
     "treeshaked": {
       "rollup": {
         "code": 2998,
