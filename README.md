@@ -61,6 +61,8 @@ export function App() {
 ### Function Hook (`useAutoControlled(initialState, props)`)
 **For React v16.8+**
 
+*Demo: https://codesandbox.io/s/react-16-auto-controlled-hooks-on52i*
+
 Unlike a [Class State Manager](#Class-State-Manager-static-getDerivedStateFromPropsnextProps-prevState), a Hook only manages **one** slice of the state, similar to the React `useState` hook.
 By using Hooks, you gain more control over which state you'd prefer to update. However, in the spirit of `useState`,
 you have to invoke the state modifer one by one if you want to update multiple states at once.
@@ -87,8 +89,8 @@ export function Counter(props) {
     defaultProp: props.defaultName,   // optional
   });
 
-  getDerivedValueFromProp();
-  getDerivedNameFromProp();
+  getDerivedValueFromProp();  // Similar to getDerivedStateFromProps, except no argument and state slice only.
+  getDerivedNameFromProp();   // Similar to getDerivedStateFromProps, except no argument and state slice only.
 
   const handleClick = useCallback(() => {
     trySetValue(value + 1);
@@ -110,6 +112,8 @@ export function Counter(props) {
 
 ### Class State Manager (`static getDerivedStateFromProps(nextProps, prevState)`)
 **For React v16.3+**
+
+*Demo: https://codesandbox.io/s/react-16-auto-controlled-class-7360y*
 
 The Class State Manager offers a set of methods in order to autocontrol state. Unlike `<AutoControlledComponent>`,
 it's not an extension of the React `Component` class. You'll need to declare your own class component separately.
@@ -197,15 +201,19 @@ export class Counter
 ### Class State Manager (`componentWillReceiveProps(nextProps)` and `this.state`)
 **For React 15.0 ... React 16.2**
 
+>**⚠️ This library has been tested with React v16.8.x. ⚠️**
+>
+>This library can't guarantee that this approach will always work.
+>
+>Consider upgrading your project's React dependency to at least v16.3.
+
+*Demo: https://codesandbox.io/s/react-15-auto-controlled-class-s1gky*
+
 The Class State Manager offers a set of methods in order to autocontrol state.
 
 The [`static getDerivedStateFromProps(nextProps, prevState)`](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops) component function, which this library intends to enhance, would be unavailable to you in your version of React, but you still intend to use this library for the remaining benefits. You can subsitute it with a combination of:
 - `componentWillReceiveProps(nextProps)` lifecycle function
 - `this.state` in the lifecycle implementation.
-
-**⚠️ This library was tested with the latest versions of React. ⚠️**
-
-It does not guarantee that this approach will work. Consider upgrading your React dependency to at least v16.3.
 
 ```tsx
 import React, { Component } from 'react';
@@ -314,6 +322,6 @@ Ideas & support are more than welcome!
 
 ## License
 
-*See: [LICENSE.md](LICENSE.md)*
+_See: [LICENSE.md](LICENSE.md)_
 
 MIT.
