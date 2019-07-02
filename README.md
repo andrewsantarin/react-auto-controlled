@@ -78,8 +78,14 @@ interface CounterProps {
 }
 
 export function Counter(props) {
-  const [ value, trySetValue, getDerivedValueFromProp ] = useAutoControlled(0, props.value, props.defaultValue);
-  const [ name, trySetName, getDerivedNameFromProp ] = useAutoControlled('Andrew', props.name, props.defaultName);
+  const [ value, trySetValue, getDerivedValueFromProp ] = useAutoControlled(0, {
+    prop: props.value,                // optional
+    defaultProp: props.defaultValue,  // optional
+  });
+  const [ name, trySetName, getDerivedNameFromProp ] = useAutoControlled('Andrew', {
+    prop: props.name,                 // optional
+    defaultProp: props.defaultName,   // optional
+  });
 
   getDerivedValueFromProp();
   getDerivedNameFromProp();
