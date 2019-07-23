@@ -1,14 +1,14 @@
 # react-auto-controlled
 A collection of React component libraries (both class methods and Hooks) for self-governing state values.
 
-- [Why?](#Why)
-- [Installation](#Installation)
-- [Usage](#Usage)
-  - [Function Hook (`useAutoControlled(initialState, props)`)](#Function-Hook-useAutoControlledinitialState-props)
-  - [Class State Manager (`static getDerivedStateFromProps(nextProps, prevState)`)](#Class-State-Manager-static-getDerivedStateFromPropsnextProps-prevState)
-  - [Class State Manager (`componentWillReceiveProps(nextProps)` and `this.state`)](#Class-State-Manager-componentWillReceivePropsnextProps-and-thisstate)
-- [Contribution](#Contribution)
-- [License](#License)
+- [Why?](#why)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Function Hook (`useAutoControlled(initialState, props)`)](#function-hook-useautocontrolledinitialstate-props)
+  - [Class State Manager (`static getDerivedStateFromProps(nextProps, prevState)`)](#class-state-manager-static-getderivedstatefrompropsnextprops-prevstate)
+  - [Class State Manager (`componentWillReceiveProps(nextProps)` and `this.state`)](#class-state-manager-componentwillreceivepropsnextprops-and-thisstate)
+- [Contribution](#contribution)
+- [License](#license)
 
 ## Why?
 1. You've the need to write (most likely generic) components which contain simple controls to their internal state, such as visibility toggling or number incrementing which should be controllable by the component without having to provide a prop and event handler externally.
@@ -20,6 +20,8 @@ A collection of React component libraries (both class methods and Hooks) for sel
 Enter this library. Its utilities behave roughly in the manner you'd expect if you were to use `<AutoControlledComponent>`, with some differences. Include support for a Hook-based counterpart and you get `react-auto-controlled`.
 
 ## Installation
+[![react-auto-controlled](https://nodei.co/npm/react-auto-controlled.png)](https://npmjs.org/package/react-auto-controlled)
+
 You'll need React preinstalled in order to use this library.
 
 **NPM**
