@@ -96,7 +96,6 @@ export class AutoControlledManager<
    *         state: State
    *       ) => Partial<State>;
    *     }} [propsToStateDerivers={}] A set of methods which determine the component's initial state and the state after every rerender.
-   * @memberof AutoControlledManager2
    */
   constructor(
     autoControlledProps: (keyof State)[],
