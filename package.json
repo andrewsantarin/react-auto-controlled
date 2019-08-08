@@ -1,6 +1,6 @@
 {
   "name": "react-auto-controlled",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Component autonomous state control utilities in React class methods and React Hooks",
   "keywords": [
     "react",
