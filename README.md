@@ -88,7 +88,7 @@ export function Counter(props) {
     prop: props.value,                // optional
     defaultProp: props.defaultValue,  // optional
   });
-  const [ name, trySetName, getDerivedNameFromProp ] = useAutoControlled('Andrew', {
+  const [ name, setName trySetName, getDerivedNameFromProp ] = useAutoControlled('Andrew', {
     prop: props.name,                 // optional
     defaultProp: props.defaultName,   // optional
   });

@@ -6,7 +6,7 @@ import isEqual from 'lodash/isEqual';
 /**
  * Returns a stateful value, and a function to update it, but only if no prop has been provided.
  * 
- * Mimics the `useState()` React Hook signature, but returns an additional method for
+ * Mimics the `useState()` React Hook signature, but returns additional utility methods for
  * automatically deriving state from prop.
  * 
  * @export
@@ -17,8 +17,9 @@ import isEqual from 'lodash/isEqual';
  * @returns {[
  *   State,
  *   React.Dispatch<React.SetStateAction<State>>,
+ *   React.Dispatch<React.SetStateAction<State>>,
  *   () => void
- * ]}
+ * ]} A list made up of the state and the methods, in the form of `[ state, setState, trySetState, getDerivedStateFromProp ]`.
  */
 export const useAutoControlled = function useAutoControlled<State>(
   initialState: State,
@@ -38,6 +39,7 @@ export const useAutoControlled = function useAutoControlled<State>(
   } = {}
 ): [
   State,
+  React.Dispatch<React.SetStateAction<State>>,
   React.Dispatch<React.SetStateAction<State>>,
   () => void
 ] {
@@ -67,6 +69,7 @@ export const useAutoControlled = function useAutoControlled<State>(
 
   return [
     state,
+    setState,
     trySetState,
     getDerivedStateFromProp,
   ];

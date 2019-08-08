@@ -16,13 +16,13 @@ describe('useAutoControlled', () => {
     });
 
     act(() => {
-      hook.result.current[2]();
+      hook.result.current[3]();
     });
 
     expect(hook.result.current[0]).toBe(123);
 
     act(() => {
-      hook.result.current[1](456);
+      hook.result.current[2](456);
     });
 
     expect(hook.result.current[0]).toBe(123);
@@ -32,13 +32,13 @@ describe('useAutoControlled', () => {
     const hook = renderHook(() => useAutoControlled(0));
 
     act(() => {
-      hook.result.current[2]();
+      hook.result.current[3]();
     });
 
     expect(hook.result.current[0]).toBe(0);
 
     act(() => {
-      hook.result.current[1](123);
+      hook.result.current[2](123);
     });
 
     expect(hook.result.current[0]).toBe(123);
@@ -52,13 +52,13 @@ describe('useAutoControlled', () => {
     });
 
     act(() => {
-      hook.result.current[2]();
+      hook.result.current[3]();
     });
 
     expect(hook.result.current[0]).toBe(123);
 
     act(() => {
-      hook.result.current[1](456);
+      hook.result.current[2](456);
     });
 
     expect(hook.result.current[0]).toBe(456);
