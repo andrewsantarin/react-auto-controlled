@@ -61,7 +61,8 @@ export default [
     output: {
       file: "example/src/react-auto-controlled/index.js",
       format: "es",
-      banner: "/* eslint-disable */"
+      banner: "/* eslint-disable */",
+      sourcemap: true
     },
     external: external,
     plugins: createPlugins(),
