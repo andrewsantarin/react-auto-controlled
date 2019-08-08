@@ -135,6 +135,10 @@ it's not an extension of the React `Component` class. You'll need to declare you
 This approach was taken in order to reduce `static` attribute pollution on the component class, which can also
 be potentially overridden by an unattentive developer. The manager's methods are immutable (`Object.freeze(this)`).
 
+>If you use earlier versions of React which aren't shipped with the
+>[`static getDerivedStateFromProps(nextProps, prevState)`](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+>component function, refer to the [legacy example](#state-manager-class-legacy) instead.
+
 ```tsx
 import React, { Component } from 'react';
 import { AutoControlledManager, AutoControlled } from 'react-auto-controlled';
