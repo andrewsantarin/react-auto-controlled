@@ -4,9 +4,9 @@ A collection of React component libraries (both class methods and Hooks) for sel
 - [Why?](#why)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Function Hook (`useAutoControlled(initialState, props)`)](#function-hook-useautocontrolledinitialstate-props)
-  - [Class State Manager (`static getDerivedStateFromProps(nextProps, prevState)`)](#class-state-manager-static-getderivedstatefrompropsnextprops-prevstate)
-  - [Class State Manager (`componentWillReceiveProps(nextProps)` and `this.state`)](#class-state-manager-componentwillreceivepropsnextprops-and-thisstate)
+  - [Hook Function](#hook-function)
+  - [State Manager Class (modern)](#state-manager-class-modern)
+  - [State Manager Class (legacy)](#state-manager-class-legacy)
 - [Contribution](#contribution)
 - [License](#license)
 
@@ -62,12 +62,12 @@ export function App() {
 }
 ```
 
-### Function Hook (`useAutoControlled(initialState, props)`)
+### Hook Function
 **For React v16.8+**
 
 *Demo: https://codesandbox.io/s/react-16-auto-controlled-hooks-on52i*
 
-Unlike a [Class State Manager](#Class-State-Manager-static-getDerivedStateFromPropsnextProps-prevState), a Hook only manages **one** slice of the state, similar to the React `useState` hook.
+Unlike a [State Manager Class](#state-manager-class-modern), a Hook only manages **one** slice of the state, similar to the React `useState` hook.
 By using Hooks, you gain more control over which state you'd prefer to update. However, in the spirit of `useState`,
 you have to invoke the state modifer one by one if you want to update multiple states at once.
 
@@ -84,11 +84,21 @@ interface CounterProps {
 }
 
 export function Counter(props) {
-  const [ value, trySetValue, getDerivedValueFromProp ] = useAutoControlled(0, {
+  const [
+    value,      // original React.useState pattern
+    setValue,   // original React.useState pattern
+    trySetValue,
+    getDerivedValueFromProp
+  ] = useAutoControlled(0, {
     prop: props.value,                // optional
     defaultProp: props.defaultValue,  // optional
   });
-  const [ name, setName trySetName, getDerivedNameFromProp ] = useAutoControlled('Andrew', {
+  const [
+    name,       // original React.useState pattern
+    setName,    // original React.useState pattern
+    trySetName,
+    getDerivedNameFromProp
+  ] = useAutoControlled('Andrew', {
     prop: props.name,                 // optional
     defaultProp: props.defaultName,   // optional
   });
@@ -114,7 +124,7 @@ export function Counter(props) {
 }
 ```
 
-### Class State Manager (`static getDerivedStateFromProps(nextProps, prevState)`)
+### State Manager Class (modern)
 **For React v16.3+**
 
 *Demo: https://codesandbox.io/s/react-16-auto-controlled-class-7360y*
@@ -202,20 +212,20 @@ export class Counter
 }
 ```
 
-### Class State Manager (`componentWillReceiveProps(nextProps)` and `this.state`)
-**For React 15.0 ... React 16.2**
+### State Manager Class (legacy)
+**For React 15.0 ~ React 16.2**
 
 >**⚠️ This library has been tested with React v16.8.x. ⚠️**
 >
->This library can't guarantee that this approach will always work.
+>The maintainer(s) can't guarantee that this approach will always work.
 >
 >Consider upgrading your project's React dependency to at least v16.3.
 
-*Demo: https://codesandbox.io/s/react-15-auto-controlled-class-s1gky*
+*Demo: https://codesandbox.io/s/github/andrewsantarin/react-15-auto-controlled-class/tree/master/*
 
 The Class State Manager offers a set of methods in order to autocontrol state.
 
-The [`static getDerivedStateFromProps(nextProps, prevState)`](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops) component function, which this library intends to enhance, would be unavailable to you in your version of React, but you still intend to use this library for the remaining benefits. You can subsitute it with a combination of:
+The [`static getDerivedStateFromProps(nextProps, prevState)`](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops) component function, which this library intends to enhance, is unavailable to you in earlier version of React. You can subsitute it with a combination of:
 - `componentWillReceiveProps(nextProps)` lifecycle function
 - `this.state` in the lifecycle implementation.
 
