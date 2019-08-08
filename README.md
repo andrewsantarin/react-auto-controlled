@@ -65,7 +65,7 @@ export function App() {
 ### Hook Function
 **For React v16.8+**
 
-*Demo: https://codesandbox.io/s/react-16-auto-controlled-hooks-on52i*
+*Demo: https://github.com/andrewsantarin/react-16-auto-controlled-hook/tree/master/*
 
 Unlike a [State Manager Class](#state-manager-class-modern), a Hook only manages **one** slice of the state, similar to the React `useState` hook.
 By using Hooks, you gain more control over which state you'd prefer to update. However, in the spirit of `useState`,
@@ -127,7 +127,7 @@ export function Counter(props) {
 ### State Manager Class (modern)
 **For React v16.3+**
 
-*Demo: https://codesandbox.io/s/react-16-auto-controlled-class-7360y*
+*Demo: https://github.com/andrewsantarin/react-16-auto-controlled-class/tree/master/*
 
 The Class State Manager offers a set of methods in order to autocontrol state. Unlike `<AutoControlledComponent>`,
 it's not an extension of the React `Component` class. You'll need to declare your own class component separately.
