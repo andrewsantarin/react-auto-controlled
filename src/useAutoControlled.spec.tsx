@@ -8,11 +8,17 @@ describe('useAutoControlled', () => {
     expect(useAutoControlled).toBeDefined();
   });
 
+  type InitialProps = {
+    defaultProp?: number;
+    prop?: number;
+  };
+
   it('should not update state when a prop has been provided', () => {
+    const initialProps: InitialProps = {
+      prop: 123,
+    };
     const hook = renderHook((props) => useAutoControlled(0, props), {
-      initialProps: {
-        prop: 123,
-      },
+      initialProps: initialProps,
     });
 
     act(() => {
@@ -45,10 +51,11 @@ describe('useAutoControlled', () => {
   });
 
   it('should initialize state from a default prop if provided', () => {
+    const initialProps: InitialProps = {
+      defaultProp: 123,
+    };
     const hook = renderHook((props) => useAutoControlled(0, props), {
-      initialProps: {
-        defaultProp: 123,
-      },
+      initialProps: initialProps,
     });
 
     act(() => {
