@@ -29,13 +29,13 @@ export const useAutoControlled = function useAutoControlled<State>(
      *
      * @type {State}
      */
-    prop?: NonNullable<State>;
+    prop?: State;
     /**
      * Controls the initial state. Use this if your uncontrolled component accepts a custom starting value.
      *
      * @type {State}
      */
-    defaultProp?: NonNullable<State>;
+    defaultProp?: State;
   } = {}
 ): [
   State,
